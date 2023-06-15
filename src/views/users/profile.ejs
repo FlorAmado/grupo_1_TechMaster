@@ -10,74 +10,64 @@
 
   <title>TechMaster Perfil de usuario</title>
 </head>
+
 <body class="body-profile" id="profile-page">
-  
-  <%- include('../partials/header') %> 
+
+  <%- include('../partials/header') %>
 
 
-  <main class="main-profile">
-    <p class="main__p-regresar">
-      <a href="/"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
-    </p>
+    <main class="main-profile">
 
-    <h1>Perfil de usuario</h1>
+      <a class="main__p-regresar" href="/"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
 
-    <section class="main__section-profile">
-      
-      <div class="avatar-upload">
-          <form  action="/users/profile?_method=PUT" method="POST" enctype="multipart/form-data">
-            <div class="avatar-edit">
-                <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" name="avatar"/>
-                <label for="imageUpload"></i></label>
-                <button class="profile--buttom" type="submit">Actualizar Perfil </button>
-              </form>
+
+      <div class="profile_boxRow">
+        <img class="profile_picture" src="<%= /http/.test(user.avatar) ? user.avatar : ` /Images/users/${user.avatar || 'default-user.png'}` %>" alt="">
+        <h1 class="profile_greatings">Hola <%= user.name %> <%=user.surname %></h1>
+        <p><%=user.email%></p>
+
+      </div>
+      <form class="profile_form" action="/users/profile?_method=PUT&removeImageBefore=1" method="POST" enctype="multipart/form-data">
+        <div class="profile_box">
+          <span class="profile_titulo">Datos personales</span>
+
+          <p>Nombre:   <input name="name" type="text" value="<%=user.name%>"></p>
+          <p>Apellido:   <input name="surname" type="text" value="<%=user.surname%>"></p>
+          <span class="profile_titulo">ubicacion</span>
+
+          <!-- <small class="profile_subtitulo">Ubicacion</small> -->
+          <p>Direccion:   <input name="address" type="text" value="<%=location.address%>"></p>
+          <p>Ciudad:   <input name="city" type="text" value="<%=location.city%>"></p>
+          <p>Provincia:   <input name="province" type="text" value="<%=location.province%>"></p>
+          <p>Codigo Postal:   <input id="input-cod-postal" name="zipCode" type="text" value="<%=location.zipCode%>"></p>
+          <!-- <small class="profile_subtitulo">Avatar</small> -->
+          <p><label for="avata">Avatar:   </label><input name="avatar" type="file"></p>
+          
+          
+          <div class="profile_buttonBox" >
+            <button class="btn btn-outline-light" type="reset"> Resetear </button>
+            <button class="btn btn-light" type="submit"> Guardar </button>
           </div>
-            <div class="avatar-preview">
-              <img id="imagePreview" class="d-block " src="/images/users/<%= user.avatar ? user.avatar : 'default-user.png' %>" >
-               <!--  <div id="imagePreview" style="background-image: url(img-prueba-1.png);"> -->
-                </div>
-            </div>
+          </div>
+      </form>
+
+
+      <!-- <a class="profile_boxRow" href="/carrito">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <div class="profile_carritoDatabox">
+          <p>Mi Carrito</p>
+          <small>Consulta tu orden en proceso</small>
         </div>
-        <div class="main__section-profile--name">
-          <h2>Hola <%= locals.userLogin.name %></h2>
+      </a>
+      <a class="profile_boxRow" href="/carrito">
+        <i class="fa-regular fa-file-lines"></i>
+        <div class="profile_carritoDatabox">
+          <p>Mis compras</p>
+          <small>Consulta el recivo de tus compras concretadas</small>
         </div>
-    </section>
+      </a> -->
+      </main>
 
-    <section class="main__section-info">
-
-      <article class="main__section__article--datos">
-        <div class="main__section__article-icon"><a href=""><i class="fa-solid fa-user"></i> Mis Datos</a> </div>
-        <p class="main__section-info-p">Gestioná tus datos personales.</p>
-        <div class="main__section__article__div--flecha"> <i class="fa-solid fa-chevron-right"></i></div>
-
-      </article>
-      <article class="main__section__article--compras">
-        <div class="main__section__article-icon"><a href=""><i class="fa-solid fa-cart-shopping"></i> Mis compras </a> </div>
-        <p class="main__section-info-p">Seguí el estado de tus compras y consultá tus facturas.</p>
-        <div class="main__section__article__div--flecha"> <i class="fa-solid fa-chevron-right"></i></div>
-      </article>
-      <article class="main__section__article--tarjetas">
-        <div class="main__section__article-icon"><a href=""><i class="fa-solid fa-credit-card"></i> Mis tarjetas </a> </div>
-        <p class="main__section-info-p">Gestioná tus tarjetas.</p>
-        <div class="main__section__article__div--flecha"> <i class="fa-solid fa-chevron-right"></i></div>
-      </article>
-      <article class="main__section__article--ayuda">
-        <div class="main__section__article-icon"><a href=""><i class="fa-solid fa-circle-info"></i> Centro de ayuda </a> </div>
-        <p class="main__section-info-p">Realizá consultas y reclamos.</p>
-        <div class="main__section__article__div--flecha"> <i class="fa-solid fa-chevron-right"></i></div>
-      </article>
-      
-      <article id="main__section__article--sesion" >
-        
-        <button  id="main__section__article--sesion-a"><span>Cerrar sesion </span><i class="fa-solid fa-arrow-right-from-bracket"></i> </button>
-      </article>
-    </section>
-    
-  </main>
-
-  <%- include('../partials/footer')  %> 
-
-</body>
-<script src="/public/javaScript/profile.js"></script>
-
-</html>
+      <%- include('../partials/footer')  %> 
+      <%- include('../partials/scripts')  %>
+    </body>

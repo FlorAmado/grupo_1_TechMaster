@@ -1,7 +1,7 @@
 *{
-    padding: 0;
-    text-decoration: none;
-    list-style: none;
+    /* padding: 0; */
+    /* text-decoration: none; */
+    /* list-style: none; */
 }
 
 .login__main{
@@ -9,7 +9,10 @@
 }
 
 .login__main__div{
-    background-color: var(--colorGranate);
+    /* background-color: var(--colorGranate); */
+    background-image: url('../Images/giphy.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
     color: white;
     display: flex;
     justify-content: center;
@@ -19,9 +22,11 @@
     padding-top: 25px;
     padding-bottom: 25px;
 }
-
+#bolt{
+    width: 60px;
+}
 .login__main__div__logo--tablet{
-    display: none;
+    display: flex;
 }
 
 .login__main__div__titulo{
@@ -33,12 +38,11 @@
 }
 
 .login__main__div--links{
-  /*   width: 240px;
-    padding: 10px;
-    border: 1px solid rgb(255, 255, 255); */
     border: 1px solid white;
     width: 260px;
-    padding: 5px 8px;text-align: center;
+    padding: 5px 8px;
+    text-align: center;
+  /*   background-color: rgba(128, 128, 128, 0.13); */
 }
 
 .login__main__div--links a{
@@ -103,22 +107,30 @@ justify-content: center;
     padding: 1%;
 }
 
-
+/* 
 .login__button:hover {
     background-color: rgb(107, 34, 77) ;
     
-}
+} */
 
 .login__main__form--buttons{
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: center;
+    gap: 25px;
+    font-size: 20px;
 }
 
 .login__main__form--buttons a{
-    color: white;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
 }
+.login__main__form--buttons a:hover{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+/* 
 
 .login__button2{
     background-color: white;
@@ -127,7 +139,6 @@ justify-content: center;
     border: solid 1px black;
     height: 45px;
 }
-
 .login__button{
     background-color: var(--colorGranate);
     color: white;
@@ -144,7 +155,7 @@ justify-content: center;
 }
 .login__button2:hover a{
     color: white;
-}
+} */
 
 .login__main__form--forget{
     display: flex;
@@ -152,6 +163,11 @@ justify-content: center;
     justify-content: center;
     margin-top: 10px;
 }
+
+.isInvalid {
+    border-bottom: 2px solid rgb(157, 0, 0);
+}
+
 
 @media (min-width:768px) {
 
@@ -174,6 +190,7 @@ justify-content: center;
     .login__main__form--boxes{
     border: none;
     padding: 1%;
+    display: flex;
 }
 
 .login__main__form--forget{
@@ -240,4 +257,7 @@ justify-content: center;
     .login__main__form--forget{
         flex-direction: column;
     }
+    
+   
 }
+.eyeButton{/* position: absolute; *//* margin-left: -30px; *//* margin-top: 20px; */}

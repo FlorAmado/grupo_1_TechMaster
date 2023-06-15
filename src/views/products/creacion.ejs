@@ -12,62 +12,79 @@
 
     <main class="estaCreacion">
      
-      <form method="POST" enctype="multipart/form-data">
+      <form method="POST" enctype="multipart/form-data" id="creationForm">
         
           <h1 class="esteTitulo">CREA TU PRODUCTO</h1>
-        <div class="div_1">
-          <label for="name"> Nombre </label>
-          <input  class="inputNombre" type="form_text" class="texto" name="name">
-        </div>
+          <div class="div_1">
+            <label for="name"> Nombre </label>
+            <input class=" inputNombre <%= (locals.errors && errors.name) && 'is-invalid'%>" 
+             id="name" name="name" value="<%= (locals.old && old.name) && old.name %>">
+            <small class="register__errors" id="errorName">
+              <%= locals.errors && errors.name ? errors.name.msg : null %>
+            </small>
+          </div>
+
 <div class="div_a">
         <div class="div_2">
           <label for="category"> Categoría </label>
-          <select class="inputCategoria" class="selector" name="category" id="">
-            <option class="estaOpcion" > </option>
-            <option class="estaOpcion" value="Monitor">Monitor </option>
-            <option class="estaOpcion" value="Teclado">Teclado </option>
-            <option class="estaOpcion" value="Mouse">Mouse </option>
-            <option class="estaOpcion" value="Auriculares">Auriculares</option>
+          <select  class="inputCategoria <%= locals.errors && errors.category ? 'is-invalid' : null%>" name="category"  id="category">
+            <option value=""  selected hidden>Seleccione...</option>
+            <% categories.forEach(({name, id}) => { %>
+              <option value="<%= id %>"><%= name %></option>
+             <% }) %>
+          </select>
+          <small class="register__errors" id="errorCategory">
+            <%= locals.errors && errors.category ? errors.category.msg : null %>
+          </small>
+        </div>
+          <div class="div_4">
+          <label for="visible">Visibilidad</label>
+          <select  class="inputColor" name="visible" id="">
+            <option value="1" selected>Visible</option>
+            <option value="0">No visible</option>
           </select>
         </div>
-          <div class="div_3">
-            <label for="color"> Color </label>
-          <select class="inputColor" class="selector" name="color" id="">
-            <option class="estaOpcion" > </option>
-            <option class="estaOpcion" value="Blanco">Blanco</option>
-            <option class="estaOpcion" value="Negro">Negro</option>
-            <option class="estaOpcion" value="Rojo">Rojo</option>
-            <option class="estaOpcion" value="Amarillo">Amarillo </option>
-            <option class="estaOpcion" value="Azul">Azul </option>
-            <option class="estaOpcion" value="Vioeleta">Vioeleta</option>
-            <option class="estaOpcion" value="Naranja">Naranja</option>
-            <option class="estaOpcion" value="Violeta">Violeta</option>
-          </select>
-      </div>
     </div>
     <div class="div_b">
 <!--         <p class="esteStock">Indique el stock disponible:</p>
         <div class="inputStock" ><input type=" number" class="numero" >Unidades</div> -->
       <div class="div_4">
         <label for="price"> Precio </label>
-        <input type="number" class="inputPrecio" name="price" >
+        <input type="number" class="inputPrecio <%= locals.errors && errors.price ? 'is-invalid' : null%>" name="price" id="price"
+        value="<%= locals.old && old.price ? old.price : null %>">
+        <small class="register__errors" id="errorPrice">
+          <%= locals.errors && errors.price ? errors.price.msg : null %>
+        </small>
        </div> 
+       
        <div class="div_5">
         <label for="discount"> Descuento </label>
-        <input type="number" class="inputDescuento" name="discount" >
+        <input type="number" class="inputDescuento <%= locals.errors && errors.discount ? 'is-invalid' : null%>" name="discount" value="0" id="discount">
+        <small class="register__errors" id="errorDiscount">
+          <%= locals.errors && errors.discount ? errors.discount.msg : null %>
+        </small>
       </div>
     </div>
       <div class="div_6">
         <label for="description"> Descripción </label>
-        <textarea class="inputDescripcion" name="description" rows="5"></textarea>
+        <textarea class="inputDescripcion <%= locals.errors && errors.price ? 'is-invalid' : null%>" name="description" rows="5" id="description"></textarea>
+        <small class="register__errors" id="errorDescription">
+          <%= locals.errors && errors.description ? errors.description.msg : null %>
+        </small>
       </div>
       <div class="div_7" >
-        <label for="images"> Agrega 3 imágenes </label>
-        <input class="inputimagen" type="file" name="images" multiple>
+        <label for="images" id="btnImages"> Agrega 3 imágenes </label>
+        <input class="inputimagen" type="file" name="images" id="images" multiple>
+        <small class="register__errors" id="errorImages">
+          <%= locals.errors && errors.images ? errors.images.msg : null %>
+        </small>
       </div>
+      <div style="display:flex;justify-content: space-evenly;" id="boxImagesPreview">
+      </div>
+
       <div class="div_c">
       <div class="div_8">
-          <button class="esteBoton1" type="reset">Cancelar</button>
+          <button class="esteBoton1" type="reset">Resetear</button>
         </div>  
           <div class="div_9">  
           <button class="esteBoton2" type="submit">Crear</button>
@@ -79,6 +96,7 @@
     <%- include('../partials/footer') %>
 
     <%- include('../partials/scripts')  %>
+    <script src="/javaScript/creacion.js"></script>
 </body>
 
 </html>

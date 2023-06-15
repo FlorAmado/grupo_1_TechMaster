@@ -1,10 +1,11 @@
-.estaCreacion{display: flex;justify-content: center;background: white;}
+.estaCreacion{display: flex;justify-content: center;background-image:url('../Images/setup4.jpg');background-repeat: no-repeat;background-size: cover;}
 .estaCreacion form{
+    max-width: 550px;
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 1rem;
     width: 85%;
     min-width: 300px;
-    background-color: white;
+    background-color: hsl(0deg 0% 100% / 67%);
     padding: 10px;
     border-radius: 15px;
     box-shadow: 0 0 5px rgb(0 0 0 / 50%);
@@ -21,21 +22,21 @@
 
 
 
-.div_1{display: flex ;margin: 2%;flex-direction: column;}
+.div_1{display: flex;margin: 0 2%;flex-direction: column;}
 
 .div_a{display: flex;}
 .div_2{display: flex ;margin: 2%;flex-direction: column;width: 50%;}
 .div_3{display: flex ;margin: 2%;flex-direction: column;width: 50%;}
 
 .div_b{display: flex;}
-.div_4{display: flex ;margin: 2%;flex-direction: column;width: 50%;}
+.div_4{display: flex;margin: 2% 2%;flex-direction: column;width: 50%;}
 .div_5{display: flex ;margin: 2%;flex-direction: column;width: 50%;}
 
-.div_6{display: flex ;margin: 2%;flex-direction: column;}
-.div_7{display: flex ;margin: 2%;flex-direction: column;}
+.div_6{display: flex;margin: 0 2%;flex-direction: column;}
+.div_7{display: flex;margin: 1% 2%;flex-direction: column;}
 
 .div_c{display: flex;}
-.div_8{display: flex;margin: 2%;flex-direction: row;width: 50%;justify-content: center;}
+.div_8{display: flex;margin:  2%;flex-direction: row;width: 50%;justify-content: center;}
 .div_9{display: flex;margin: 2%;flex-direction: row;width: 50%;justify-content: center;}
 
 
@@ -45,26 +46,28 @@
 }
 
 .inputNombre{
+    padding-left: 5px;
     background-color: lightgray;
     border: none;
     border-radius: 3px;
 }
 
 .inputCategoria{
-    height: 34px;
+    height: 22px;
     background-color: lightgray;
     border: none;
     border-radius: 3px;
 }
 
 .inputColor{
-    height: 33px;
+    height: 22px;
     background-color: lightgray;
     border: none;
     border-radius: 3px;
 }
 
 .inputPrecio{
+    padding-left: 5px;
     background-color: lightgray;
     border: none;
     border-radius: 3px;
@@ -75,10 +78,11 @@
     background-color: lightgray;
     border: none;
     border-radius: 3px;
-    width: 100%;
+    /* width: 100%; */
+    padding-left: 5px;
 }
 
-.inputDescripcion{}
+.inputDescripcion{padding-left: 5px;}
 
 .inputimagen{
     background-color: lightgray;
@@ -86,8 +90,17 @@
     border-radius: 3px;
 }
 
-.esteBoton1{width: 80%;color: white;border: none;border-radius: 3px;background-color: var(--escalaDeGrises);}
+.esteBoton1{width: 80%;color: white;border: none;border-radius: 3px;text-align: center;background-color: var(--escalaDeGrises);font-size: 0.8rem;cursor: pointer;}
 
-.esteBoton2{width: 80%;}
+.esteBoton2{width: 80%;font-size: 0.8rem;}
 
+.esteBoton1:hover{
+    
+text-decoration: none;
+    
+color: white;
+    
+cursor: default;
+}
 
+.magicImage{}

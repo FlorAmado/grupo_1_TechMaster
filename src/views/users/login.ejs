@@ -9,30 +9,32 @@
     <main class="login__main">
         
             <div class="login__main__div">
+
                 <h2 class="login__main__div__titulo">Bienvenid@ a</h2>
 
-                <a class="login__main__div__logo" href="/"><img src="/images/logo.svg" alt="Logo" /></a>
+          <!--   <a class="login__main__div__logo" href="/"><img src="/images/logo-x2.png" alt="Logo" /></a> -->
 
-                <a class="login__main__div__logo--tablet" href="/"><img src="/images/logo.svg" alt="Logo" /><img src="/Images/LOGO-TECHMASTER.svg" alt="Logo" /></a>
+                <a class="login__main__div__logo--tablet" href="/"><img id="bolt" src="/Images/bolt.png" alt="Logo" /><img src="/Images/LOGO-TECHMASTER.svg" alt="Logo" /></a>
 
                 <div class="login__main__div__logo--textinfo">
-                    <h3>TechMaster te brindará el mejor servicio de compra y venta de productos tecnologicos y afines.</h3>
+                    <p>TechMaster te brindará el mejor servicio de compra y venta de productos tecnologicos y afines.</p>
                 </div>
                 
 
-                <div class="login__main__div--links">
+               <!--  <div class="login__main__div--links">
                     <a href="">
                     <i class="fa-brands fa-facebook"></i>
                   Continuar con Facebook
                     </a>
-                </div>
+                </div> -->
 
                 <div class="login__main__div--links">
-                    <a href="">
+                    <a href="/auth/login/google">
                     <i class="fa-brands fa-google"></i>
                   Continuar con Google
                     </a>
                 </div>
+                
             </div>
 
             
@@ -46,23 +48,23 @@
                 <div class="login__main__form--boxes">
                     <input type="email" placeholder="Email" name="email" id="email" autocomplete="off">
                 </div>
-                <small class="register__errors"><%= (locals.errors && errors.email) && errors.email.msg %></small>
+                <small class="register__errors" id="errorEmail"><%= (locals.errors && errors.email) && errors.email.msg %></small>
     
                 <div class="login__main__form--boxes">
                     <input type="password" placeholder="Contraseña" name="password" id="password" autocomplete="off">
                 </div>
-                <small class="register__errors"><%= (locals.errors && errors.password) && errors.password.msg %></small>
+                <small class="register__errors" id="errorPass"><%= (locals.errors && errors.password) && errors.password.msg %></small>
                 <div class="register__form__oferta1">
                     <input type="checkbox" placeholder="" name="remember">
                       <span class="register__span" >Recordame</span>
                 </div>
     
                 <div class="login__main__form--buttons">
-                    <button class="login__button" type="submit">Ingresar</button>
-                    <button class="login__button2" type="submit"> <a href="/users/register">Crea tu cuenta</a> </button>
+                    <button class="btn btn-dark "  type="submit">Ingresar</button>
+                    <button class="btn btn-outline-secondary " type="submit"> <a href="/users/register">Registrarme</a> </button>
                 </div>
 
-                <a class="login__main__form--forget" href="">Olvidé mi contraseña</a>
+               <!--  <a class="login__main__form--forget" href="">Olvidé mi contraseña</a> -->
             </section>
             
         </form>
@@ -70,6 +72,7 @@
     </main>
 
     <%- include('../partials/scripts')  %>
+    <script src="/javaScript/login.js"></script>
 </body>
 
 </html>

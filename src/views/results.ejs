@@ -9,37 +9,76 @@
   
   <%- include('./partials/header') %> 
 
-
+  <div class="div-main-resultados-capa">
   <main class="mainResultados">
     <% if (resultSearch.length === 0) { %>
       <h1>Lo sentimos, no hubo resultados para: <%= keywords %>
     <% }else{ %>
     <h1>Resultados de la búsqueda: <%= keywords  %></h1>
     <section>
-      <% resultSearch.forEach(({id,name,image,description,discount,price,color,category}) => { %>
-       <article class="articleResultados">
+      <% resultSearch.forEach(({id,name,images,description,discount,price,color,category}) => { 
+        const priceWithDiscount = discount
+        ? price - (price * discount) / 100
+        : price;
+      const priceFormatARG = priceWithDiscount.toLocaleString("es-AR", {
+        style: "currency",
+        currency: "ARS",
+      });
+      
+      %>
+
+      <%
+      function obtenerNumeroAleatorio(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+          } 
+          const random = obtenerNumeroAleatorio(70,350);
+          const random2= obtenerNumeroAleatorio(70,350);
+      %>
+
+       <article class="articleResultados card-carrousel">
         <span>
-          <img src="/Images/products/<%= image ? image[0] : 'default-image.png' %>"></img>
+          <img src="/Images/products/<%= images.length ? images[0].name : 'default-image.png' %>"></img>
         </span>
         <div>
             <h3><%= name %></h3>
           <div class="precioYOferta">
+            
             <h4><%= discount ? discount+' % OFF' : ""%></h4>
-            <h2>$<%=(price - (price* discount) / 100)%></h2>
+            <h2><%=priceFormatARG%></h2>
           </div>
           <div>
             <a href="/products/detalle/<%= id %>"><button>Detalles</button></a>
-            <a href="/carrito"><button>Adquirir</button></a>
+            <a href="#" onclick="addProductToCart('<%= id %>')"><button>Adquirir</button></a>
           </div>
         </div>
       </article>
       <% }) %>
       <% } %>
-</main>
-      
-    
+</main></div>
+
 
   <%- include('./partials/footer')  %> 
+  <script src="/javaScript/addProductToCart.js"></script>
+
+  <script>
+    const cardsCarrousel = Array.from(document.querySelectorAll(".card-carrousel"))
+            console.log(cardsCarrousel)
+            const backgrounds = [
+              "linear-gradient(-229deg, #fbd52d, #ef3a7c)",
+              "linear-gradient(-229deg, #FF70AF, #5fa8f5)",
+              "linear-gradient(-229deg, #0cebeb, #29ffc6)",
+              "linear-gradient(-229deg, #88F7F9, #048FFF)",
+              "linear-gradient(-229deg, #0093E9, #80D0C7)",
+              "linear-gradient(-229deg, #cf91ff, #5782F5)",
+              "linear-gradient(-229deg, #642B73, #C6426E)"
+            ];
+            cardsCarrousel.forEach(articleResultados => {
+              articleResultados.style.background = backgrounds[Math.floor(Math.random() * 7)]
+            })
+    </script>
+
+
+
 </body>
 
 </html>

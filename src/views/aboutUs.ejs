@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- HEAD -->
+<%- include('./partials/head',{title : 'About Us' }) %>
+
+  <body class="aboutUs__home">
+    <%- include('./partials/header',{title : 'About Us' }) %>
+      <h1 class="aboutUs_title">Sobre nosotros</h1>
+    <main class="aboutUs__main">
+
+      <div class="bios">
+
+        <div class="bios_data">
+          <div>
+            <img src="/Images/users/default-user.png" alt="">
+            <div>
+              <h5>Florencia Amado</h5>
+              <h6>- 17 Años</h6>
+              <h6>- Lanús</h6>
+            </div>
+          </div>
+          <p class="bios_bio">Actualmente cursando 7mo en un Secundario Tecnico. Cuando no le dedico tiempo al curso,
+            mis tiempos libres los paso con mi familia/amigos o mirando series.</p>
+
+        </div>
+
+        <div class="bios_data">
+          <div>
+            <img src="/Images/users/default-user.png" alt="">
+            <div>
+              <h5>Carlos Guillen</h5>
+              <h6>- 19 Años</h6>
+              <h6>- CABA</h6>
+            </div>
+          </div>
+          <p class="bios_bio">Joven, con un breve conocimiento en informática, tengo terminado la secundaria en un
+            colegio informático y me gusta mucho el mundo de la Ciberseguridad.</p>
+        </div>
+        <div class="bios_data">
+          <div>
+            <img src="/Images/users/default-user.png" alt="">
+            <div>
+              <h5>Braian Almiron</h5>
+              <h6>- 26 Años</h6>
+              <h6>- Lanús</h6>
+            </div>
+          </div>
+          <p class="bios_bio">Actualmente cursando Desarrollador Web Full Stack de Fundación Formar (Digital House) y
+            Argentina Programa.</p>
+        </div>
+        <div class="bios_data">
+          <div>
+            <img src="/Images/users/default-user.png" alt="">
+            <div>
+              <h5>Rolando Lisarazo</h5>
+              <h6>- 30 Años</h6>
+              <h6>- Córdoba</h6>
+            </div>
+          </div>
+          <p class="bios_bio">Entusiasta de el diseño de videojuegos y juegos de mesa. con carrera en construccion y
+            desempeño en tareas en equipo.</p>
+        </div>
+      </div>
+      <h4 class="aboutUs_text">Este trabajo practico nos permitio crecer programadores y como equipo. Gracias al talento
+        de los Profesores de Digital House pudimos explayar nuestro conocimiento y tecnica a la hora de construir un
+        comercio digital. <br>Esperamos que te agrade la experiencia de navegar atravez de TechMaster y agradecemos
+        inmensamente tu opinion o saludo en la seccion de comentario 😊</h4>
+      <div class="aboutUs_commentsBox">
+        <form class="aboutUs_form" method="POST">
+          <h3>Dejanos tu opinon</h3>
+          <div>Nombre:<input name="name" type="text"></div>
+          <textarea name="content" name="comment"></textarea>
+          <button type="submit">comentar</button>
+        </form>
+        <div class="aboutUs_comments">
+          <h2>Comentarios</h2>
+          <% comments.forEach(comment=> { %>
+
+            
+            <% if (locals.userLogin && locals.userLogin.rol=== 1 ) { %>
+              <div class="comment">
+                <div><span>
+                  <%= comment.name %>
+                </span>
+                <label for="visiblecheck<%= comment.id %>">Visible <input name="visiblecheck<%= comment.id %>" id="visiblecheck<%= comment.id %>" type="checkbox"> </label>
+              </div>
+                <p>
+                  <%= comment.content %>
+                </p>
+              </div>
+                <% }else{%>
+                  
+            <div class="comment">
+              <span>
+                <%= comment.name %>
+              </span>
+              <p>
+                <%= comment.content %>
+              </p>
+            </div>
+                  <% }%> 
+
+
+            <% }) %>
+        </div>
+
+      </div>
+    </main>
+    <%- include('./partials/footer') %>
+
+  </body>
+
+</html>

@@ -6,14 +6,14 @@ const storageProductImages = multer.diskStorage({
         callback(null, 'public/images/users')
     },
     filename : function (req,file,callback) {
-        callback(null,`${Date.now()}_products_${path.extname(file.originalname)}`)
+        callback(null,`${Date.now()}_users_${path.extname(file.originalname)}`)
     }
 });
 
-const uploadProductImagesUser = multer({
+const uploadImageUser = multer({
     storage : storageProductImages
 });
 
 module.exports = {
-    uploadProductImagesUser
+    uploadImageUser
 }

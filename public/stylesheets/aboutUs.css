@@ -1,0 +1,88 @@
+.aboutUs__home{
+}
+.aboutUs__main{
+    color: white;
+    background-color: var(--colorGrisOscuro);
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+}
+
+.aboutUs_title{
+    color: white;
+    margin: 0;
+    background-color: var(--colorGranate);
+}
+.bios{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.bios_data{
+    display: flex;
+    flex-direction: column;
+    min-width: 240px;
+    max-width: 25%;
+}
+.bios_data div{
+    display: flex;
+    flex-direction: row;
+}
+.bios_data div img{
+    width: 80px;
+    margin-right: 5px;
+}
+.bios_data div div{
+    display: flex;
+    flex-direction: column;
+}
+.bios_data div div h5{}
+.bios_data div div h6{}
+.bios_data p{
+    margin: 0;
+    padding: 0px 10px 15px 0;
+    font-size: 0.8rem;
+}
+
+.aboutUs_text{
+    margin: 0px 10px;
+    padding: 15px 25px;
+    background-color: var(--colorGranate);
+    font-size: 1rem;
+}
+.aboutUs_form{
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+}
+.aboutUs_form h3{}
+.aboutUs_form input{
+    width: 238px;
+}
+.aboutUs_form textarea{}
+.aboutUs_form button{}
+.aboutUs_comments{}
+
+.aboutUs_commentsBox{
+    display: flex;
+    flex-wrap: wrap;
+}
+.comment{
+    max-width: 300px;
+    padding: 0 10px;
+    margin: 0 10px;
+    background-color: var(--escalaDeGrises);
+    border-radius: 10px;
+}
+.comment div{
+    display: flex;
+    justify-content: space-between;
+}
+.comment div span{font-size: 1.5rem;}
+.comment div label {
+    user-select: none;
+}
+.comment div label input{}
+.comment p{margin-left: 12px;}
